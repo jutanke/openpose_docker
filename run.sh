@@ -1,0 +1,1 @@
+docker run --runtime=nvidia --name='openpose_instance' -it openpose /bin/bash
