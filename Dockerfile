@@ -58,7 +58,20 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1
 RUN tar xvzf cmake-3.14.1.tar.gz
 RUN cd cmake-3.14.1 && bash configure && bash bootstrap
 RUN cd cmake-3.14.1 && make -j12 && make install -j8
+
+RUN apt-get install -y liblmdb-dev libleveldb-dev libsnappy-dev
 RUN cd /home && git clone https://github.com/CMU-Perceptual-Computing-Lab/openpose.git
 RUN cd /home/openpose && mkdir build
-RUN cd /home/openpose/build && cmake ..
+RUN cd /home/openpose/build && cmake -DBUILD_PYTHON=ON ..
 RUN cd /home/openpose/build && make -j12
+RUN cd /home/openpose/build && make install -j12
+
+RUN apt-get install -y mesa-utils and libgl1-mesa-glx x11-apps eog
+RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.7 /usr/local/cuda/lib64/libcudnn.so.7
+RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.so
+
+# version 0.1
+COPY pe.py /home/pe.py
+
+# make sure the right GPU is used (in case of multi-GPU setups)
+ENV CUDA_VISIBLE_DEVICES=0
