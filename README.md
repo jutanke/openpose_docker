@@ -19,7 +19,7 @@ cd openpose_docker && ./build.sh
 
 (3) Usage:
 ```
-./openpose /your/img/input/dir /your/output/dir/keypoints/json
+./openpose.sh /your/img/input/dir /your/output/dir/keypoints/json
 ```
 
 The keypoint json files will be located in the output folder.
