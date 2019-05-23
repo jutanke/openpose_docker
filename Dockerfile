@@ -73,6 +73,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.s
 # version 0.2
 RUN apt-get install -y vim
 COPY scripts/exec_img.sh /exec_img.sh
+COPY scripts/exec_vis.sh /exec_vis.sh
 
 # make sure the right GPU is used (in case of multi-GPU setups)
 ENV CUDA_VISIBLE_DEVICES=0
