@@ -39,16 +39,20 @@ RUN pip3 install -U pip numpy
 
 # ---- OPENCV ----
 
+RUN apt-get install libeigen3-dev
+ENV CPLUS_INCLUDE_PATH /usr/local/include/eigen3/
 RUN cd /home && git clone https://github.com/opencv/opencv.git
 RUN cd /home/opencv && git checkout 3.4 && mkdir build
 RUN cd /home/opencv/build && cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	    -D EIGEN_INCLUDE_PATH=/usr/include/eigen3 \
             -D INSTALL_C_EXAMPLES=ON \
             -D INSTALL_PYTHON_EXAMPLES=ON \
             -D WITH_TBB=ON \
+	    -D WITH_EGEIN=ON \
             -D WITH_V4L=ON \
         -D WITH_QT=ON \
-        -D WITH_OPENGL=ON \
-        -D BUILD_EXAMPLES=ON ..
+        -D WITH_OPENGL=OFF \
+        -D BUILD_EXAMPLES=OFF ..
 RUN cd /home/opencv/build && make -j12 && make install
 
 # --- OPENPOSE ----
@@ -77,3 +81,4 @@ COPY scripts/exec_vis.sh /exec_vis.sh
 
 # make sure the right GPU is used (in case of multi-GPU setups)
 ENV CUDA_VISIBLE_DEVICES=0
+
