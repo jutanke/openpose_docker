@@ -23,3 +23,10 @@ cd openpose_docker && ./build.sh
 ```
 
 The keypoint json files will be located in the output folder.
+
+### Visualization
+
+If you just want to visualize your images using Openpose you can use the following script:
+```
+./visualize.sh /your/img/input/dir
+```
