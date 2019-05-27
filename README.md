@@ -29,7 +29,7 @@ If you want to extract the heatmaps and PAFs as well, simply call:
 ```
 ./heatmaps.sh /your/img/input/dir /your/output/dir/keypoints/json
 ```
-The keypoints will organized the same way as with __openpose.sh__, however, you will find a directory __heatmaps__ as subfolder to the output directory where the heatmaps and pafs are stored as single pngs.
+The keypoints will be organized in the same way as with __openpose.sh__, however, you will find a directory __heatmaps__ as subfolder to the output directory where the heatmaps and pafs are stored as single pngs.
 Please read the openpose documentation for a detailed structured definition.
 
 ### Visualization
