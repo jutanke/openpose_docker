@@ -21,9 +21,9 @@ fi
 
 nvidia-docker run\
     --privileged\
-    --name='openpose_instance_generate'\
+    --name='openpose_instance_hm_generate'\
     -v "$1":/home/user/data\
     -v "$2":/home/user/output\
     --rm\
     -it jutanke/openpose\
-    /bin/bash exec_img.sh
+    /bin/bash exec_hm.sh
