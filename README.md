@@ -24,6 +24,14 @@ cd openpose_docker && ./build.sh
 
 The keypoint json files will be located in the output folder.
 
+### Extracting heatmaps and PAFs
+If you want to extract the heatmaps and PAFs as well, simply call:
+```
+./heatmaps.sh /your/img/input/dir /your/output/dir/keypoints/json
+```
+The keypoints will organized the same way as with __openpose.sh__, however, you will find a directory __heatmaps__ as subfolder to the output directory where the heatmaps and pafs are stored as single pngs.
+Please read the openpose documentation for a detailed structured definition.
+
 ### Visualization
 
 If you just want to visualize your images using Openpose you can use the following script:
