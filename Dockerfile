@@ -74,7 +74,7 @@ RUN apt-get update && apt-get install -y mesa-utils and libgl1-mesa-glx x11-apps
 RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.7 /usr/local/cuda/lib64/libcudnn.so.7
 RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.so
 
-# version 0.7
+# version 0.8
 RUN apt-get install -y vim
 COPY scripts/exec_img.sh /exec_img.sh
 COPY scripts/exec_vis.sh /exec_vis.sh

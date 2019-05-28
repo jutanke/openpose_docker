@@ -4,4 +4,6 @@ cd /home/openpose && ./build/examples/openpose/openpose.bin\
     --image_dir=/home/user/data\
     --write_json=/home/user/output \
     --heatmaps_add_PAFs\
+    --heatmaps_add_parts\
+    --heatmaps_add_bkg\
     --write_heatmaps=/home/user/output/heatmaps
