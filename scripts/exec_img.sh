@@ -3,4 +3,4 @@ cd /home/openpose && ./build/examples/openpose/openpose.bin \
     --write_json=/home/user/output \
     --display 0\
     --render_pose 0\
-    --hand
+    --scale_number 4 --scale_gap 0.25
