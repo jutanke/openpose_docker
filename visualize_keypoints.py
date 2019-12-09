@@ -60,7 +60,7 @@ for file in tqdm(listdir(img_dir)):
         for x, y, v in pts2d:
             if v > 0.1:
                 pts2d_.append((x, y))
-            ax.text(x, y, str(CNTR))
+            # ax.text(x, y, str(CNTR))
             CNTR += 1
         if len(pts2d_) > 0:
             pts2d_ = np.array(pts2d_)
