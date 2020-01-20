@@ -21,7 +21,6 @@ fi
 
 nvidia-docker run\
     --privileged\
-    --name='openpose_instance_hm_generate'\
     -v "$1":/home/user/data\
     -v "$2":/home/user/output\
     --rm\
