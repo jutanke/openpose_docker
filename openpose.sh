@@ -19,7 +19,12 @@ if [ ! -d "$2" ]; then
     fi
 fi
 
-nvidia-docker run\
+DOCKER_VERSION=$(docker version --format '{{.Server.Version}}')
+echo "docker: $DOCKER_VERSION"
+
+if [[ $DOCKER_VERSION == 19* ]]; then
+  docker run\
+    --gpus all\
     --privileged\
     --name='openpose_instance_generate'\
     -v "$1":/home/user/data\
@@ -27,3 +32,13 @@ nvidia-docker run\
     --rm\
     -it jutanke/openpose\
     /bin/bash exec_img.sh
+else
+  nvidia-docker run\
+      --privileged\
+      --name='openpose_instance_generate'\
+      -v "$1":/home/user/data\
+      -v "$2":/home/user/output\
+      --rm\
+      -it jutanke/openpose\
+      /bin/bash exec_img.sh
+fi
