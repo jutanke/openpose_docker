@@ -1,6 +1,7 @@
 170407*
 171204*
 vis_out/
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

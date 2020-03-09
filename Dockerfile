@@ -76,7 +76,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so /usr/local/cuda/lib64/libcudnn.s
 
 # version 0.8
 RUN apt-get install -y vim
-RUN echo "0.0.11"
+RUN echo "0.0.16"
 COPY scripts/exec_img.sh /exec_img.sh
 COPY scripts/exec_vis.sh /exec_vis.sh
 COPY scripts/exec_hm.sh /exec_hm.sh

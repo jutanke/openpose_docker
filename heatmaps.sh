@@ -19,10 +19,24 @@ if [ ! -d "$2" ]; then
     fi
 fi
 
-nvidia-docker run\
+DOCKER_VERSION=$(docker version --format '{{.Server.Version}}')
+echo "docker: $DOCKER_VERSION"
+
+if [[ $DOCKER_VERSION == 19* ]]; then
+  docker run\
+    --gpus all\
+      --privileged\
+      -v "$1":/home/user/data\
+      -v "$2":/home/user/output\
+      --rm\
+      -it jutanke/openpose\
+      /bin/bash exec_hm.sh
+else
+  nvidia-docker run\
     --privileged\
     -v "$1":/home/user/data\
     -v "$2":/home/user/output\
     --rm\
     -it jutanke/openpose\
     /bin/bash exec_hm.sh
+fi
